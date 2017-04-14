@@ -1,0 +1,3 @@
+graft cube/templates
+graft cube/static
+include cube/schema.sql
