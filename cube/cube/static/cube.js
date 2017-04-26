@@ -23,7 +23,7 @@ var Cube = function (cubeNetIndex) {
 			'yellow',
 		]
 		base.nets = [
-			'(0(0(21)))',
+			'(0(0(12)))',
 			'(0(0(2)1))',
 			'(0(0(2))1)',
 			'(0(0(2)))1',
@@ -111,6 +111,7 @@ var Cube = function (cubeNetIndex) {
 						'border': '1px solid black',
 						'left': `${args.x * base.size * 3}`,
 						'bottom': `${args.y * base.size * 3}`,
+						'box-sizing': 'border-box',
 					},
 				},
 			}).then(function (face) {
@@ -125,7 +126,7 @@ var Cube = function (cubeNetIndex) {
 					return function () {
 						return Promise.ordered(array.map(function (datum, j) {
 							return function () {
-								return base.cell(`f${args.index}-cell-${i}-${j}`, {
+								return base.cell(`c${cubeNetIndex}-f${args.index}-cell-${i}-${j}`, {
 									name: `${i}${j}`,
 									appearance: {
 										style: {
@@ -136,6 +137,7 @@ var Cube = function (cubeNetIndex) {
 											'border': '1px solid black',
 											'top': `${i * base.size}px`,
 											'left': `${j * base.size}px`,
+											'box-sizing': 'border-box',
 										},
 									},
 								}).then(function (cell) {
